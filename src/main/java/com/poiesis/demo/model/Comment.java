@@ -1,14 +1,37 @@
 package com.poiesis.demo.model;
 
+import jdk.nashorn.internal.ir.annotations.Reference;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
 public class Comment {
 
     @Id
-    public ObjectId _id;
+    private ObjectId _id;
+
+    @Reference
+    private User user;
+
+    @Reference
+    private Post post;
 
     public Comment() {
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    public void setPost(Post post) {
+        this.post = post;
     }
 
     public ObjectId get_id() {

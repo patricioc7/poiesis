@@ -29,4 +29,9 @@ public class UserController {
         ObjectId userId = (ObjectId) request.getAttribute("userId");
         return userService.getUser(userId);
     }
+
+    @GetMapping("/")
+    public User getAllUsers(HttpServletRequest request) {
+        return userService.getAllUsers();
+    }
 }
