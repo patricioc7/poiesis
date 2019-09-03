@@ -1,28 +1,31 @@
 package com.poiesis.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
 
-import java.util.List;
-
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
-    @Id
-    public ObjectId _id;
 
-    public String name;
-    public List<Post> posts;
-    public List<Comment> comments;
+    private ObjectId id;
 
+    private String name;
+    private String email;
+    private String password;
 
-    // Constructors
-    public User() {}
-
-    public ObjectId get_id() {
-        return _id;
+    public ObjectId getId() {
+        return id;
     }
 
-    public void set_id(ObjectId _id) {
-        this._id = _id;
+    public void setId(ObjectId id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -33,20 +36,20 @@ public class User {
         this.name = name;
     }
 
-    public List<Post> getPosts() {
-        return posts;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPosts(List<Post> posts) {
-        this.posts = posts;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public List<Comment> getComments() {
-        return comments;
+    public String getPassword() {
+        return password;
     }
 
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
 }

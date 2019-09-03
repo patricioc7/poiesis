@@ -1,9 +1,9 @@
 package com.poiesis.demo.repository;
 
-import com.poiesis.demo.model.Pets;
+import com.poiesis.demo.model.Comment;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface CommentRepository extends MongoRepository<Pets, String> {
-        Pets findBy_id(ObjectId _id);
+public interface CommentRepository extends MongoRepository<Comment, String> {
+        Comment findBy_id(ObjectId _id);
 }
