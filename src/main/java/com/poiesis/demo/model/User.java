@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Reference;
 
 import java.util.List;
 
@@ -25,11 +24,9 @@ public class User {
     private String email;
     private String password;
 
-    @Reference
-    private List<Comment> commentList;
+    private List<String> commentList;
 
-    @Reference
-    private List<Post> postList;
+    private List<String> postList;
 
     public ObjectId getId() {
         return id;
@@ -63,19 +60,19 @@ public class User {
         this.password = password;
     }
 
-    public List<Comment> getCommentList() {
+    public List<String> getCommentList() {
         return commentList;
     }
 
-    public void setCommentList(List<Comment> commentList) {
+    public void setCommentList(List<String> commentList) {
         this.commentList = commentList;
     }
 
-    public List<Post> getPostList() {
+    public List<String> getPostList() {
         return postList;
     }
 
-    public void setPostList(List<Post> postList) {
+    public void setPostList(List<String> postList) {
         this.postList = postList;
     }
 

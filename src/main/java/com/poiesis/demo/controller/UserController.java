@@ -1,12 +1,15 @@
 package com.poiesis.demo.controller;
 
+import com.poiesis.demo.dto.UserDTO;
 import com.poiesis.demo.model.User;
 import com.poiesis.demo.service.UserService;
+import com.poiesis.demo.utils.DTOUtils;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -20,8 +23,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String regiterUser(@RequestBody User user) {
-        return userService.saveUser(user);
+    public String regiterUser(@RequestBody UserDTO userDTO) {
+        return userService.saveUser(DTOUtils.getUserFromDTO(userDTO));
     }
 
     @GetMapping("/get")
@@ -31,7 +34,7 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public User getAllUsers(HttpServletRequest request) {
+    public List<User> getAllUsers(HttpServletRequest request) {
         return userService.getAllUsers();
     }
 }

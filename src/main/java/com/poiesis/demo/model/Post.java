@@ -12,16 +12,9 @@ public class Post {
     @Id
     private ObjectId _id;
     private String name;
-
-    @Reference
-    private User op;
-
-
-
-    @Reference
-    private List<Comment> commentList;
+    private String userId;
+    private List<String> commentList;
     private Date creationDate;
-
 
     public Post(){
     }
@@ -42,19 +35,19 @@ public class Post {
         this.name = name;
     }
 
-    public User getOp() {
-        return op;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setOp(User op) {
-        this.op = op;
+    public void setUserId(String user) {
+        this.userId = user;
     }
 
-    public List<Comment> getCommentList() {
+    public List<String> getCommentList() {
         return commentList;
     }
 
-    public void setCommentList(List<Comment> commentList) {
+    public void setCommentList(List<String> commentList) {
         this.commentList = commentList;
     }
 
