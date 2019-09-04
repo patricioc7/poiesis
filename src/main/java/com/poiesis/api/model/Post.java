@@ -1,8 +1,7 @@
-package com.poiesis.demo.model;
+package com.poiesis.api.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Reference;
 
 import java.util.Date;
 import java.util.List;
@@ -22,7 +21,6 @@ public class Post {
     public ObjectId get_id() {
         return _id;
     }
-
 
     public void set_id(ObjectId _id) {
         this._id = _id;

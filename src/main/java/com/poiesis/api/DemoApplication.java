@@ -1,4 +1,4 @@
-package com.poiesis.demo;
+package com.poiesis.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

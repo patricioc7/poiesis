@@ -1,4 +1,4 @@
-package com.poiesis.demo.dto;
+package com.poiesis.api.dto;
 
 import java.util.List;
 

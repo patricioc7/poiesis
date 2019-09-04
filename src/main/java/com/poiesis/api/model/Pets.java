@@ -1,4 +1,4 @@
-package com.poiesis.demo.model;
+package com.poiesis.api.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

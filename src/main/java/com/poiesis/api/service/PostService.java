@@ -1,7 +1,7 @@
-package com.poiesis.demo.service;
+package com.poiesis.api.service;
 
-import com.poiesis.demo.model.Post;
-import com.poiesis.demo.repository.PostRepository;
+import com.poiesis.api.model.Post;
+import com.poiesis.api.repository.PostRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

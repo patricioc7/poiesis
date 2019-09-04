@@ -1,4 +1,4 @@
-package com.poiesis.demo.service;
+package com.poiesis.api.service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;

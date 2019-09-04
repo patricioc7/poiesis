@@ -1,6 +1,4 @@
-package com.poiesis.demo.dto;
-
-import com.poiesis.demo.model.Post;
+package com.poiesis.api.dto;
 
 import java.util.List;
 

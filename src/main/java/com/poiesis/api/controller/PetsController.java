@@ -1,7 +1,7 @@
-package com.poiesis.demo.controller;
+package com.poiesis.api.controller;
 
-import com.poiesis.demo.model.Pets;
-import com.poiesis.demo.repository.PetsRepository;
+import com.poiesis.api.model.Pets;
+import com.poiesis.api.repository.PetsRepository;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

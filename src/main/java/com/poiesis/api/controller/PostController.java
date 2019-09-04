@@ -1,8 +1,8 @@
-package com.poiesis.demo.controller;
+package com.poiesis.api.controller;
 
-import com.poiesis.demo.dto.PostDTO;
-import com.poiesis.demo.model.Post;
-import com.poiesis.demo.service.PostService;
+import com.poiesis.api.dto.PostDTO;
+import com.poiesis.api.model.Post;
+import com.poiesis.api.service.PostService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
-import static com.poiesis.demo.utils.DTOUtils.getPostFromDTO;
+import static com.poiesis.api.utils.DTOUtils.getPostFromDTO;
 
 @RestController
 @RequestMapping("/Post")

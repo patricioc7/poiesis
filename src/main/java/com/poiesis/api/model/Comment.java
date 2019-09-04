@@ -1,4 +1,4 @@
-package com.poiesis.demo.model;
+package com.poiesis.api.model;
 
 import jdk.nashorn.internal.ir.annotations.Reference;
 import org.bson.types.ObjectId;

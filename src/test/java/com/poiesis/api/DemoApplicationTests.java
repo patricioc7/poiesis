@@ -1,4 +1,4 @@
-package com.poiesis.demo;
+package com.poiesis.api;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

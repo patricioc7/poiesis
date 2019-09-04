@@ -1,9 +1,9 @@
-package com.poiesis.demo.controller;
+package com.poiesis.api.controller;
 
-import com.poiesis.demo.dto.UserDTO;
-import com.poiesis.demo.model.User;
-import com.poiesis.demo.service.UserService;
-import com.poiesis.demo.utils.DTOUtils;
+import com.poiesis.api.dto.UserDTO;
+import com.poiesis.api.model.User;
+import com.poiesis.api.service.UserService;
+import com.poiesis.api.utils.DTOUtils;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String regiterUser(@RequestBody UserDTO userDTO) {
+    public String registerUser(@RequestBody UserDTO userDTO) {
         return userService.saveUser(DTOUtils.getUserFromDTO(userDTO));
     }
 

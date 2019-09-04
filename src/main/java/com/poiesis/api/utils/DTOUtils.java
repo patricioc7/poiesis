@@ -1,9 +1,9 @@
-package com.poiesis.demo.utils;
+package com.poiesis.api.utils;
 
-import com.poiesis.demo.dto.PostDTO;
-import com.poiesis.demo.dto.UserDTO;
-import com.poiesis.demo.model.Post;
-import com.poiesis.demo.model.User;
+import com.poiesis.api.dto.PostDTO;
+import com.poiesis.api.dto.UserDTO;
+import com.poiesis.api.model.Post;
+import com.poiesis.api.model.User;
 
 public class DTOUtils {
     public static Post getPostFromDTO(PostDTO postDTO){

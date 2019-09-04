@@ -1,6 +1,6 @@
-package com.poiesis.demo.repository;
+package com.poiesis.api.repository;
 
-import com.poiesis.demo.model.Pets;
+import com.poiesis.api.model.Pets;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

@@ -1,6 +1,6 @@
-package com.poiesis.demo.config;
+package com.poiesis.api.config;
 
-import com.poiesis.demo.service.TokenService;
+import com.poiesis.api.service.TokenService;
 import org.bson.types.ObjectId;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.GenericFilterBean;
