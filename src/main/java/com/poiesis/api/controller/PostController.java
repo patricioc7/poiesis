@@ -33,7 +33,7 @@ public class PostController {
     }
 
     @GetMapping("/user/{id}")
-    public List<Post> getAllPostByUser(HttpServletRequest request) {
-        return postService.getAllPostByUserId(new ObjectId(request.getParameter("id")));
+    public List<Post> getAllPostByUser(@PathVariable("id") String id) {
+        return postService.getAllPostByUserId(id);
     }
 }

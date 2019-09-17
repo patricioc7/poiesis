@@ -28,7 +28,7 @@ public class PostService {
         return savedPost;
     }
 
-    public List<Post> getAllPostByUserId(ObjectId userId) {
+    public List<Post> getAllPostByUserId(String userId) {
         return repository.getPostByUserId(userId);
     }
 }

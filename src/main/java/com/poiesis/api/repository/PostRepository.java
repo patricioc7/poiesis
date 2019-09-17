@@ -9,5 +9,6 @@ import java.util.List;
 public interface PostRepository extends MongoRepository<Post, String> {
         Post findBy_id(ObjectId _id);
 
-        List<Post> getPostByUserId(ObjectId user);
+
+        List<Post> getPostByUserId(String userId);
 }

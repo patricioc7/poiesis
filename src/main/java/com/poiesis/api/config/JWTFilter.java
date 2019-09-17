@@ -54,6 +54,9 @@ public class JWTFilter extends GenericFilterBean {
         if (request.getRequestURI().contains("/register")) {
             return true;
         }
+        if (request.getRequestURI().contains("/login")) {
+            return true;
+        }
         return false;
     }
 

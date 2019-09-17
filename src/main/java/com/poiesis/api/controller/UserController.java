@@ -15,6 +15,7 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
+
     private UserService userService;
 
     @Autowired
@@ -25,6 +26,18 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@RequestBody UserDTO userDTO) {
         return userService.saveUser(DTOUtils.getUserFromDTO(userDTO));
+    }
+
+    @PostMapping("/login")
+    public String loginUser(@RequestBody UserDTO userDTO) {
+        User userWithCredentials = userService.getUserWithCredentials(userDTO);
+        String userToken = "";
+        try{
+            userToken = userService.getUserToken(userWithCredentials);
+        }catch (Exception e){
+            userToken = "invalid Username or Password";
+        }
+        return userToken;
     }
 
     @GetMapping("/get")

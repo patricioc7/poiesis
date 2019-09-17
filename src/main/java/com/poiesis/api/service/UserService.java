@@ -1,5 +1,6 @@
 package com.poiesis.api.service;
 
+import com.poiesis.api.dto.UserDTO;
 import com.poiesis.api.model.User;
 import com.poiesis.api.repository.UserRepository;
 import org.bson.types.ObjectId;
@@ -31,7 +32,15 @@ public class UserService {
         return tokenService.createToken(savedUser.getId());
     }
 
+    public String getUserToken(User user) {
+        return tokenService.createToken(user.getId());
+    }
+
     public List<User> getAllUsers() {
         return userRepository.findAll();
+    }
+
+    public User getUserWithCredentials(UserDTO userDTO) {
+       return userRepository.findByEmailAndPassword(userDTO.email, userDTO.password);
     }
 }
