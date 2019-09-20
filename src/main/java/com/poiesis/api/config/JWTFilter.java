@@ -2,6 +2,7 @@ package com.poiesis.api.config;
 
 import com.poiesis.api.service.TokenService;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.filter.GenericFilterBean;
 
@@ -18,6 +19,9 @@ public class JWTFilter extends GenericFilterBean {
 
     private TokenService tokenService;
 
+    @Value("${clientSecret}")
+    private String CLIENT_SECRET;
+
     JWTFilter() {
         this.tokenService = new TokenService();
     }
@@ -28,23 +32,27 @@ public class JWTFilter extends GenericFilterBean {
         HttpServletRequest request = (HttpServletRequest) req;
         HttpServletResponse response = (HttpServletResponse) res;
         String token = request.getHeader("Authorization");
+        String clientSecret = request.getHeader("x-clientSecret");
 
-        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
-            response.sendError(HttpServletResponse.SC_OK, "success");
-            return;
-        }
+        if(clientSecret.equals(CLIENT_SECRET)){
 
-        if (allowRequestWithoutToken(request)) {
-            response.setStatus(HttpServletResponse.SC_OK);
-            filterChain.doFilter(req, res);
-        } else {
-            if (token == null || !tokenService.isTokenValid(token)) {
-                response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
-            } else {
-                ObjectId userId = new ObjectId(tokenService.getUserIdFromToken(token));
-                request.setAttribute("userId", userId);
+            if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+                response.sendError(HttpServletResponse.SC_OK, "success");
+                return;
+            }
+
+            if (allowRequestWithoutToken(request)) {
+                response.setStatus(HttpServletResponse.SC_OK);
                 filterChain.doFilter(req, res);
+            } else {
+                if (token == null || !tokenService.isTokenValid(token)) {
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
+                } else {
+                    ObjectId userId = new ObjectId(tokenService.getUserIdFromToken(token));
+                    request.setAttribute("userId", userId);
+                    filterChain.doFilter(req, res);
 
+                }
             }
         }
 

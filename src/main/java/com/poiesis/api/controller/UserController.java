@@ -1,6 +1,8 @@
 package com.poiesis.api.controller;
 
+import com.google.common.collect.Maps;
 import com.poiesis.api.dto.UserDTO;
+import com.poiesis.api.dto.responses.LoginResponseDTO;
 import com.poiesis.api.model.User;
 import com.poiesis.api.service.UserService;
 import com.poiesis.api.utils.DTOUtils;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
 
 @RestController
@@ -27,9 +30,9 @@ public class UserController {
     public String registerUser(@RequestBody UserDTO userDTO) {
         return userService.saveUser(DTOUtils.getUserFromDTO(userDTO));
     }
-
+    @CrossOrigin(origins = "*")
     @PostMapping("/login")
-    public String loginUser(@RequestBody UserDTO userDTO) {
+    public LoginResponseDTO loginUser(@RequestBody UserDTO userDTO) {
         User userWithCredentials = userService.getUserWithCredentials(userDTO);
         String userToken = "";
         try{
@@ -37,9 +40,13 @@ public class UserController {
         }catch (Exception e){
             userToken = "invalid Username or Password";
         }
-        return userToken;
+        LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
+        loginResponseDTO.token = userToken;
+        loginResponseDTO.name = userWithCredentials.getName();
+        return loginResponseDTO;
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping("/get")
     public User getUser(HttpServletRequest request) {
         ObjectId userId = (ObjectId) request.getAttribute("userId");
