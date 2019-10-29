@@ -8,4 +8,5 @@ public class PostDTO {
     public String userId;
     public List<String> commentList;
     public String creationDate;
+    public String content;
 }

@@ -10,6 +10,7 @@ public class DTOUtils {
         Post post = new Post();
         post.setName(postDTO.name);
         post.setUserId(postDTO.userId);
+        post.setContent(postDTO.content);
         return post;
     }
 

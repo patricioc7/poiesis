@@ -41,8 +41,16 @@ public class UserController {
             userToken = "invalid Username or Password";
         }
         LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
+        if(userWithCredentials != null){
+
+            loginResponseDTO.name = userWithCredentials.getName();
+            loginResponseDTO.userId = userWithCredentials.getId().toString();
+            loginResponseDTO.isLoggedIn = true;
+
+        }
+
         loginResponseDTO.token = userToken;
-        loginResponseDTO.name = userWithCredentials.getName();
+
         return loginResponseDTO;
     }
 

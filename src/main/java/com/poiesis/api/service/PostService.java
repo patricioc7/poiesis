@@ -18,6 +18,10 @@ public class PostService {
         return repository.findAll();
     }
 
+    public List<Post> getAllPostByUser(String userID) {
+        return repository.getPostByUserId(userID);
+    }
+
     public Post getPost(ObjectId postId) {
         Optional<Post> byId = repository.findById(postId.toString());
         return byId.get();

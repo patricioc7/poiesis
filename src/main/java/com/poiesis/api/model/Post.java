@@ -12,6 +12,7 @@ public class Post {
     private ObjectId _id;
     private String name;
     private String userId;
+    private String content;
     private List<String> commentList;
     private Date creationDate;
 
@@ -55,5 +56,13 @@ public class Post {
 
     public void setCreationDate(Date creationDate) {
         this.creationDate = creationDate;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }
