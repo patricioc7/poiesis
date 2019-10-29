@@ -25,8 +25,16 @@ public class PostController {
     }
 
     @GetMapping("/")
-    public List<Post> getAllPosts(HttpServletRequest request) {
-        return postService.getAllPost();
+    public List<PostResponseDTO> getAllPosts(HttpServletRequest request) {
+        List<PostResponseDTO> responseList = Lists.newArrayList();
+        for (Post post : postService.getAllPost()) {
+            PostResponseDTO postResponseDTO = new PostResponseDTO();
+            postResponseDTO.userId = post.getUserId();
+            postResponseDTO.content = post.getContent();
+            postResponseDTO.postId = post.get_id().toString();
+            responseList.add(postResponseDTO);
+        }
+        return responseList;
     }
 
     @PostMapping("/new")
