@@ -70,6 +70,7 @@ public class PostController {
         postResponseDTO.userId = post.getUserId();
         postResponseDTO.content = post.getContent();
         postResponseDTO.postId = post.get_id().toString();
+        postResponseDTO.title = post.getName();
         return postResponseDTO;
     }
 }
