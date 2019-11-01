@@ -18,7 +18,6 @@ import java.util.List;
 @RequestMapping("/user")
 public class UserController {
 
-
     private UserService userService;
 
     @Autowired
@@ -46,7 +45,6 @@ public class UserController {
             loginResponseDTO.name = userWithCredentials.getName();
             loginResponseDTO.userId = userWithCredentials.getId().toString();
             loginResponseDTO.isLoggedIn = true;
-
         }
 
         loginResponseDTO.token = userToken;
