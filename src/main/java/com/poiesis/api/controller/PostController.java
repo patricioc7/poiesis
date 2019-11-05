@@ -5,6 +5,7 @@ import com.poiesis.api.dto.PostDTO;
 import com.poiesis.api.dto.responses.PostResponseDTO;
 import com.poiesis.api.model.Post;
 import com.poiesis.api.service.PostService;
+import com.poiesis.api.service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +19,16 @@ import static com.poiesis.api.utils.DTOUtils.getPostFromDTO;
 @RequestMapping("/post")
 public class PostController {
     private PostService postService;
+    private UserService userService;
 
     @Autowired
-    PostController(PostService postService) {
+    PostController(PostService postService, UserService userService) {
         this.postService = postService;
+        this.userService = userService;
+
     }
+
+
 
     @GetMapping("/")
     public List<PostResponseDTO> getAllPosts(HttpServletRequest request) {
@@ -32,6 +38,7 @@ public class PostController {
             postResponseDTO.userId = post.getUserId();
             postResponseDTO.content = post.getContent();
             postResponseDTO.postId = post.get_id().toString();
+            postResponseDTO.userName = userService.getUser(new ObjectId(post.getUserId())).getName();
             postResponseDTO.title = post.getTitle();
             responseList.add(postResponseDTO);
         }
@@ -71,6 +78,7 @@ public class PostController {
         PostResponseDTO postResponseDTO = new PostResponseDTO();
         postResponseDTO.userId = post.getUserId();
         postResponseDTO.content = post.getContent();
+        postResponseDTO.userName = userService.getUser(new ObjectId(post.getUserId())).getName();
         postResponseDTO.postId = post.get_id().toString();
         postResponseDTO.title = post.getTitle();
         return postResponseDTO;

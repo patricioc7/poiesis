@@ -27,6 +27,8 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerUser(@RequestBody UserDTO userDTO) {
+        System.out.println("///////////////////////////////");
+        System.out.println(userDTO);
         return userService.saveUser(DTOUtils.getUserFromDTO(userDTO));
     }
     @CrossOrigin(origins = "*")
@@ -41,7 +43,6 @@ public class UserController {
         }
         LoginResponseDTO loginResponseDTO = new LoginResponseDTO();
         if(userWithCredentials != null){
-
             loginResponseDTO.name = userWithCredentials.getName();
             loginResponseDTO.userId = userWithCredentials.getId().toString();
             loginResponseDTO.isLoggedIn = true;
