@@ -10,7 +10,7 @@ public class Post {
 
     @Id
     private ObjectId _id;
-    private String name;
+    private String title;
     private String userId;
     private String content;
     private List<String> commentList;
@@ -26,12 +26,12 @@ public class Post {
     public void set_id(ObjectId _id) {
         this._id = _id;
     }
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getUserId() {

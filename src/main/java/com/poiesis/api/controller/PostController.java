@@ -32,6 +32,7 @@ public class PostController {
             postResponseDTO.userId = post.getUserId();
             postResponseDTO.content = post.getContent();
             postResponseDTO.postId = post.get_id().toString();
+            postResponseDTO.title = post.getTitle();
             responseList.add(postResponseDTO);
         }
         return responseList;
@@ -43,6 +44,7 @@ public class PostController {
         PostResponseDTO prDTO = new PostResponseDTO();
         prDTO.content = postFromDTO.getContent();
         prDTO.userId = postFromDTO.getUserId();
+        prDTO.title = postFromDTO.getTitle();
         postService.savePost(postFromDTO);
 
         return prDTO;
@@ -70,7 +72,7 @@ public class PostController {
         postResponseDTO.userId = post.getUserId();
         postResponseDTO.content = post.getContent();
         postResponseDTO.postId = post.get_id().toString();
-        postResponseDTO.title = post.getName();
+        postResponseDTO.title = post.getTitle();
         return postResponseDTO;
     }
 }

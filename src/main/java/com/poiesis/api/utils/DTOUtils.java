@@ -8,7 +8,7 @@ import com.poiesis.api.model.User;
 public class DTOUtils {
     public static Post getPostFromDTO(PostDTO postDTO){
         Post post = new Post();
-        post.setName(postDTO.name);
+        post.setTitle(postDTO.title);
         post.setUserId(postDTO.userId);
         post.setContent(postDTO.content);
         return post;
