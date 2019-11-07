@@ -9,29 +9,47 @@ public class Comment {
     @Id
     private ObjectId _id;
 
-    @Reference
-    private User user;
+    private String postId;
 
-    @Reference
-    private Post post;
+    private String userId;
+
+    private String userName;
+
+    private String content;
 
     public Comment() {
     }
 
-    public User getUser() {
-        return user;
+    public String getPostId() {
+        return postId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setPostId(String postId) {
+        this.postId = postId;
     }
 
-    public Post getPost() {
-        return post;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setPost(Post post) {
-        this.post = post;
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public ObjectId get_id() {

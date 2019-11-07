@@ -28,8 +28,6 @@ public class PostController {
 
     }
 
-
-
     @GetMapping("/")
     public List<PostResponseDTO> getAllPosts(HttpServletRequest request) {
         List<PostResponseDTO> responseList = Lists.newArrayList();

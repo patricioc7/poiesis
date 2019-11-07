@@ -1,7 +1,9 @@
 package com.poiesis.api.utils;
 
+import com.poiesis.api.dto.CommentDTO;
 import com.poiesis.api.dto.PostDTO;
 import com.poiesis.api.dto.UserDTO;
+import com.poiesis.api.model.Comment;
 import com.poiesis.api.model.Post;
 import com.poiesis.api.model.User;
 
@@ -25,4 +27,14 @@ public class DTOUtils {
         user.setDescription(userDTO.description);
         return user;
     }
+
+    public static Comment getCommentFromDTO(CommentDTO commentDTO){
+        Comment comment = new Comment();
+        comment.setContent(commentDTO.content);
+        comment.setPostId(commentDTO.postId);
+        comment.setUserId(commentDTO.userId);
+        comment.setUserName(commentDTO.userName);
+        return comment;
+    }
+
 }
