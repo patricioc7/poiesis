@@ -3,6 +3,7 @@ package com.poiesis.api.controller;
 import com.google.common.collect.Maps;
 import com.poiesis.api.dto.UserDTO;
 import com.poiesis.api.dto.responses.LoginResponseDTO;
+import com.poiesis.api.dto.responses.UserResponseDTO;
 import com.poiesis.api.model.User;
 import com.poiesis.api.service.UserService;
 import com.poiesis.api.utils.DTOUtils;
@@ -53,11 +54,15 @@ public class UserController {
         return loginResponseDTO;
     }
 
-    @CrossOrigin(origins = "*")
-    @GetMapping("/get")
-    public User getUser(HttpServletRequest request) {
-        ObjectId userId = (ObjectId) request.getAttribute("userId");
-        return userService.getUser(userId);
+    @GetMapping("/get/{id}")
+    public UserResponseDTO getUser(@PathVariable("id") String id){
+        User user = userService.getUser(new ObjectId(id));
+        UserResponseDTO usrRDTO = new UserResponseDTO();
+        usrRDTO.id = user.getId().toString();
+        usrRDTO.name = user.getName();
+        usrRDTO.pictureUrl = user.getPictureUrl();
+        usrRDTO.description = user.getDescription();
+        return usrRDTO;
     }
 
     @GetMapping("/")
